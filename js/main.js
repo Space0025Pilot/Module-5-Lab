@@ -5,6 +5,20 @@ const commentWrapper = document.querySelector('.comment-wrapper');
 
 commentWrapper.style.display = 'none';
 
+//functionality for showing/hiding to be tab accessed and enter activated
+
+showHideBtn.addEventListener("keydown", (event) => {
+  if(event.key === "Enter") {
+    showHideBtn.textContent = 'Hide comments';
+    commentWrapper.style.display = 'block';
+  } else {
+    showHideBtn.textContent = 'Show comments';
+    commentWrapper.style.display = 'none';
+  }
+});
+
+///////////////////////////////////////////////////////////////////////////
+
 showHideBtn.onclick = function() {
   let showHideText = showHideBtn.textContent;
   if(showHideText === 'Show comments') {
@@ -45,4 +59,21 @@ function submitComment() {
   nameField.value = '';
   commentField.value = '';
 }
+
+// Control transcript display functionality ////////////////////////////////////
+
+const transcript = document.querySelector('.transcript');
+const transcriptBtn = document.querySelector('.transcript-container button');
+
+transcriptBtn.onclick = function() {
+  if(transcriptBtn.textContent === 'Show transcript') {
+    transcript.style.height = '150px';
+    transcriptBtn.textContent = 'Hide transcript';
+  } else {
+    transcript.style.height = '0';
+    transcriptBtn.textContent = 'Show transcript';
+  }
+};
+
+////////////////////////////////////////////////////////////////////////////////
 
